@@ -53,7 +53,7 @@ class _LoginState extends State<Login> with LoginValidation {
                   Column(
                     children: <Widget>[
                       Container(
-                        width: _size.width*0.9,
+                        width: _size.width*0.8,
 
                         child: TextFormField(
                           validator: emailValidation,
@@ -76,7 +76,7 @@ class _LoginState extends State<Login> with LoginValidation {
                         height: _size.width*0.03,
                       ),
                       Container(
-                        width: _size.width*0.9,
+                        width: _size.width*0.8,
                         child: TextFormField(
                           validator: passwordValidation,
                           onSaved: (String value) {
@@ -116,13 +116,13 @@ class _LoginState extends State<Login> with LoginValidation {
                             }
                           },
                             title: 'Login',
-                          width: _size.width*0.9,
+                          width: _size.width*0.8,
                           height: _size.height*0.078,
                         ),
                         ],
                       ),
                       SizedBox(
-                        height: 10.0,
+                        height: 45.0,
                       ),
 
                     ],
@@ -131,78 +131,78 @@ class _LoginState extends State<Login> with LoginValidation {
               ),
 //              color: Colors.blue,
             ),
+            SizedBox(
+              height: 30.0,
+            ),
             Container(
-              margin: EdgeInsets.fromLTRB(_size.width*0.05, _size.width*0.02, _size.width*0.05, _size.width*0.03),
-
-//              height: 300.0,
+              width: double.infinity,
+              height: 156.0,
+              color: Colors.grey.withOpacity(0.3),
               child: Column(
                 children: <Widget>[
-                  SizedBox(
-                    height: _size.height*0.09,
-                  ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+//                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       SizedBox(
-                        width: _size.width*0.01,
+                        height: 80.0,
                       ),
                       Text(
-                        'Login with',
-                        style: new TextStyle(
-                            fontSize: _size.width*0.051,
-                            fontWeight: FontWeight.bold,
-                            foreground: Paint()..shader = linearGradient),
-
-                      ),
+                        'Signup With',
+                        style: TextStyle(
+                          fontSize: 20.0,
+//                        color: Colors.black,
+                          foreground: Paint()..shader = linearGradient,
+                        ),
+                      )
                     ],
                   ),
-                  SizedBox(
-                    height: _size.height*0.01,
-                  ),
-                  Container(
-                    color: Colors.grey,
-                    height: 1.5,
-                  ),
-                  SizedBox(
-                    height: _size.height*0.05,
-                  ),
+//                  SizedBox(
+//                    height: 30.0,
+//                  ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      SizedBox(
-                        width: _size.width*0.05,
-                      ),
                       Container(
-                          width:50.0,
-                          height:50.0,
-//                        width: _size.width*0.130,
-//                        height: _size.width*0.13,
+                        height: 50.0,
                         decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/facebook .png'),
-                              fit: BoxFit.fill),
-                          shape: BoxShape.circle,
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        child: RaisedButton.icon(
+                          onPressed: () {},
+                          icon: Image(image: AssetImage('assets/facebook .png')),
+                          label: Text(
+                            'Facebook',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0)),
+                          color: Color.fromRGBO(58, 89, 152, 1),
                         ),
                       ),
-                      SizedBox(
-                        width: _size.width*0.09,
-                      ),
+                      ///
                       Container(
-                          width: 50.0,
-                          height: 50.0,
-//                        width: _size.width*0.130,
-//                        height: _size.width*0.13,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/google-plus.png'),
-                              fit: BoxFit.scaleDown),
-                          shape: BoxShape.circle,
+                        height: 50.0,
+                        child: RaisedButton.icon(
+                          onPressed: () {},
+                          icon: Image(image: AssetImage('assets/google-plus.png')),
+                          label: Text(
+                            'Google+',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(40.0)),
+                          color: Color.fromRGBO(220, 78, 66, 1),
                         ),
                       ),
-                      Expanded(child: Container()),
                     ],
                   ),
-
                 ],
               ),
             ),
@@ -241,7 +241,7 @@ class GradientButton extends StatelessWidget {
         width: width,
         height: height,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(30.0),
           shape: BoxShape.rectangle,
           gradient: new LinearGradient(
             colors: [Color.fromRGBO(57, 160, 205, 1), Color.fromRGBO(5, 193, 154, 1)],

@@ -105,7 +105,8 @@ class BodyLayOut extends StatelessWidget {
                 },
                 title: 'Login',
                 width: 350.0,
-                height: 60.0),
+                height: 60.0,
+            ),
             SizedBox(
               height: 10.0,
             ),

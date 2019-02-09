@@ -32,15 +32,21 @@ class _SignInState extends State<SignIn> with LoginValidation {
           body: ListView(children: [
             Container(
 //              width: 220.0,
-              margin: EdgeInsets.fromLTRB(_size.width*0.05, _size.width*0.001, _size.width*0.05, _size.width*0.001),
+              margin: EdgeInsets.fromLTRB(_size.width * 0.05,
+                  _size.width * 0.001, _size.width * 0.05, _size.width * 0.001),
               child: Column(
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.fromLTRB(_size.width*0.03, _size.height*0.04, _size.width*0.03, _size.height*0.07),
+                    padding: EdgeInsets.fromLTRB(
+                        _size.width * 0.03,
+                        _size.height * 0.04,
+                        _size.width * 0.03,
+                        _size.height * 0.07),
                     child: Center(
-                      child: Text('Sign in',
+                      child: Text(
+                        'Sign in',
                         style: new TextStyle(
-                            fontSize: _size.width*0.08,
+                            fontSize: _size.width * 0.08,
                             fontWeight: FontWeight.bold,
                             foreground: Paint()..shader = linearGradient),
                       ),
@@ -48,84 +54,101 @@ class _SignInState extends State<SignIn> with LoginValidation {
                   ),
                   Column(
                     children: <Widget>[
-                      TextFormField(
-                        validator: emailValidation,
-                        onSaved: (String value) {
-                          setState(() {
-                            _userName = value;
-                          });
-                        },
-                        keyboardType: TextInputType.text,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius:
-                              BorderRadius.all(Radius.circular(_size.width*0.025))),
-                          hintText: 'FullName',
-                          labelText: 'FullName',
+                      Container(
+                        width: _size.width * 0.8,
+                        child: TextFormField(
+                          validator: emailValidation,
+                          onSaved: (String value) {
+                            setState(() {
+                              _userName = value;
+                            });
+                          },
+                          textCapitalization: TextCapitalization.none,
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                    Radius.circular(_size.width * 0.025))),
+                            hintText: 'FullName',
+                            labelText: 'FullName',
+                          ),
                         ),
                       ),
                       SizedBox(
-                        height: _size.width*0.03,
+                        height: _size.width * 0.03,
                       ),
-                      TextFormField(
-                        validator: passwordValidation,
-                        onSaved: (String value) {
-                          setState(() {
-                            _password = value;
-                          });
-                        },
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius:
-                              BorderRadius.all(Radius.circular(_size.width*0.025))),
-                          hintText: 'Email ID ',
-                          labelText: 'Email ID',
+                      Container(
+                        width: _size.width * 0.8,
+                        child: TextFormField(
+                          validator: passwordValidation,
+                          onSaved: (String value) {
+                            setState(() {
+                              _password = value;
+                            });
+                          },
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                    Radius.circular(_size.width * 0.025))),
+                            hintText: 'Email ID ',
+                            labelText: 'Email ID',
+                          ),
                         ),
                       ),
+                      SizedBox(
+                        height: _size.width * 0.03,
+                      ),
+                      Container(
+                        width: _size.width * 0.8,
+                        child: TextFormField(
+                          validator: passwordValidation,
+                           onSaved: (String value) {
+                            setState(() {
+                              _password = value;
+                            });
+                           },
+                          obscureText: true,
+                          keyboardType: TextInputType.phone,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(
+                                 Radius.circular(_size.width * 0.025)),
+                           ),
 
-                      SizedBox(
-                        height: _size.width*0.03,
-                      ),
-                      TextFormField(
-                        validator: passwordValidation,
-                        onSaved: (String value) {
-                          setState(() {
-                            _password = value;
-                          });
-                        },
-                        obscureText: true,
-                        keyboardType: TextInputType.phone,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius:
-                              BorderRadius.all(Radius.circular(_size.width*0.025))),
-                          hintText: 'Phone',
-                          labelText: 'Phone',
+                            suffixIcon: IconButton(
+                                icon: Icon(Icons.remove_red_eye),
+                                onPressed: () {}),
+                            hintText: 'Phone',
+                            labelText: 'Phone',
+                          ),
                         ),
                       ),
                       SizedBox(
-                        height: _size.width*0.03,
+                        height: _size.width * 0.03,
                       ),
-                      TextFormField(
-                        validator: passwordValidation,
-                        onSaved: (String value) {
-                          setState(() {
-                            _password = value;
-                          });
-                        },
-                        keyboardType: TextInputType.emailAddress,
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius:
-                              BorderRadius.all(Radius.circular(_size.width*0.025))),
-                          hintText: 'Password',
-                          labelText: 'Password',
+                      Container(
+                        width: _size.width * 0.8,
+                        child: TextFormField(
+                          validator: passwordValidation,
+                          onSaved: (String value) {
+                            setState(() {
+                              _password = value;
+                            });
+                          },
+                          keyboardType: TextInputType.emailAddress,
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                    Radius.circular(_size.width * 0.025)),),
+                            hintText: 'Password',
+                            labelText: 'Password',
+                          ),
                         ),
                       ),
                       SizedBox(
-                        height: _size.width*0.1,
+                        height: _size.width * 0.05,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -135,8 +158,7 @@ class _SignInState extends State<SignIn> with LoginValidation {
 //                          ),
                           GradientButton(
                             onPressed: () {
-                              FocusScope.of(context)
-                                  .requestFocus(FocusNode());
+                              FocusScope.of(context).requestFocus(FocusNode());
                               if (_formKey.currentState.validate() &&
                                   _acceptterms == true) {
                                 _formKey.currentState.save();
@@ -147,11 +169,10 @@ class _SignInState extends State<SignIn> with LoginValidation {
                                     .requestFocus(FocusNode());
                               }
                             },
-                              title: 'Register',
-                            width: _size.width*0.9,
-                            height: _size.height*0.078,
+                            title: 'Register',
+                            width: _size.width * 0.8,
+                            height: _size.height * 0.078,
                           ),
-
                         ],
                       ),
                     ],
@@ -159,73 +180,87 @@ class _SignInState extends State<SignIn> with LoginValidation {
                 ],
               ),
             ),
-            Container(
-              margin: EdgeInsets.fromLTRB(_size.width*0.05, _size.width*0.02, _size.width*0.05, _size.width*0.03),
 
-//              height: 300.0,
+            ///
+            ///
+            /// part 2
+            /// sign in with
+            /// FB G+
+            ///
+            ///
+            ///
+            ///
+
+            SizedBox(
+              height: 30.0,
+            ),
+            Container(
+              width: double.infinity,
+              height: 170.0,
+              color: Colors.grey.withOpacity(0.3),
               child: Column(
                 children: <Widget>[
-                  SizedBox(
-                    height: _size.height*0.02,
-                  ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+//                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       SizedBox(
-                        width: _size.width*0.01,
+                        height: 80.0,
                       ),
                       Text(
-                        'Sign in with',
-                        style: new TextStyle(
-                            fontSize: _size.width*0.051,
-                            fontWeight: FontWeight.bold,
-                            foreground: Paint()..shader = linearGradient),
-
+                        'Signup With',
+                      style: TextStyle(
+                        fontSize: 20.0,
+//                        color: Colors.black,
+                          foreground: Paint()..shader = linearGradient,
                       ),
+                      )
                     ],
                   ),
-                  SizedBox(
-                    height: _size.height*0.01,
-                  ),
-                  Container(
-                    color: Colors.grey,
-                    height: 1.5,
-                  ),
-                  SizedBox(
-                    height: _size.height*0.05,
-                  ),
+//                  SizedBox(
+//                    height: 30.0,
+//                  ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      SizedBox(
-                        width: _size.width*0.05,
-                      ),
                       Container(
-                        width: 50.0,
                         height: 50.0,
-//                        width: _size.width*0.130,
-//                        height: _size.width*0.13,
                         decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/facebook .png'),
-                              fit: BoxFit.fill),
-                          shape: BoxShape.circle,
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        child: RaisedButton.icon(
+                          onPressed: () {},
+                          icon: Image(image: AssetImage('assets/facebook .png')),
+                          label: Text(
+                            'Facebook',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0)),
+                          color: Color.fromRGBO(58, 89, 152, 1),
                         ),
                       ),
-                      SizedBox(
-                        width: _size.width*0.09,
-                      ),
+///
                       Container(
-                        width: 50.0,
-                        height:50.0,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/google-plus.png'),
-                              fit: BoxFit.scaleDown),
-                          shape: BoxShape.circle,
+                        height: 50.0,
+                        child: RaisedButton.icon(
+                          onPressed: () {},
+                          icon: Image(image: AssetImage('assets/google-plus.png')),
+                          label: Text(
+                            'Google+',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(40.0)),
+                          color: Color.fromRGBO(220, 78, 66, 1),
                         ),
                       ),
-                      Expanded(child: Container()),
                     ],
                   ),
                 ],
@@ -238,42 +273,43 @@ class _SignInState extends State<SignIn> with LoginValidation {
   }
 }
 
-
 class GradientButton extends StatelessWidget {
+  const GradientButton(
+      {Key key,
+      @required this.onPressed,
+      @required this.title,
+      @required this.width,
+      @required this.height})
+      : super(key: key);
 
-  const GradientButton({
-    Key key,
-    @required this.onPressed,
-    @required this.title,
-    @required this.width,
-    @required this.height
-  }) : super(key: key);
+  final Function onPressed;
+  final String title;
+  final double width;
+  final double height;
 
- final  Function onPressed;
- final String title;
- final double width;
- final double height;
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
       splashColor: Colors.lightBlue.withOpacity(0.5),
       onPressed: onPressed,
       child: Container(
-        child: Center(child:
-        Text(title,style: TextStyle(
-            fontSize: 20.0,
-            color: Colors.white
-        ),)),
+        child: Center(
+            child: Text(
+          title,
+          style: TextStyle(fontSize: 20.0, color: Colors.white),
+        )),
         width: width,
         height: height,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(30.0),
           shape: BoxShape.rectangle,
           gradient: new LinearGradient(
-            colors: [Color.fromRGBO(57, 160, 205, 1), Color.fromRGBO(5, 193, 154, 1)],
+            colors: [
+              Color.fromRGBO(57, 160, 205, 1),
+              Color.fromRGBO(5, 193, 154, 1)
+            ],
           ),
         ),
-
       ),
     );
   }
