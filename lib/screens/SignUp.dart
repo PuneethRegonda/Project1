@@ -67,7 +67,7 @@ class _SignUpState extends State<SignUp> with LoginValidation {
                           textCapitalization: TextCapitalization.none,
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
-                            icon: Icon(Icons.person),
+                            prefixIcon: Icon(Icons.person),
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.all(
                                     Radius.circular(_size.width * 0.025))),
@@ -90,7 +90,7 @@ class _SignUpState extends State<SignUp> with LoginValidation {
                           },
                           obscureText: true,
                           decoration: InputDecoration(
-                            icon: Icon(Icons.email),
+                            prefixIcon: Icon(Icons.email),
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.all(
                                     Radius.circular(_size.width * 0.025))),
@@ -114,7 +114,10 @@ class _SignUpState extends State<SignUp> with LoginValidation {
                           keyboardType: TextInputType.emailAddress,
                           obscureText: true,
                           decoration: InputDecoration(
-                            icon: Icon(Icons.lock),
+                            prefixIcon: Icon(Icons.lock),
+                            suffixIcon: IconButton(
+                                icon: Icon(Icons.remove_red_eye),
+                                onPressed: () {}),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.all(
                                   Radius.circular(_size.width * 0.025)),),
@@ -142,10 +145,8 @@ class _SignUpState extends State<SignUp> with LoginValidation {
                               borderRadius: BorderRadius.all(
                                  Radius.circular(_size.width * 0.025)),
                            ),
-                            icon: Icon(Icons.phone),
-                            suffixIcon: IconButton(
-                                icon: Icon(Icons.remove_red_eye),
-                                onPressed: () {}),
+                            prefixIcon: Icon(Icons.phone),
+
                             hintText: 'Phone',
                             labelText: 'Phone',
                           ),
@@ -216,8 +217,8 @@ class _SignUpState extends State<SignUp> with LoginValidation {
                         'Signup With',
                       style: TextStyle(
                         fontSize: 20.0,
-//                        color: Colors.black,
-                          foreground: Paint()..shader = linearGradient,
+                        color: Colors.black,
+//                          foreground: Paint()..shader = linearGradient,
                       ),
                       )
                     ],

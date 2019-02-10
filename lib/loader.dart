@@ -182,15 +182,15 @@ class _LoginPageState extends State<LoginPage> {
             padding: const EdgeInsets.all(8.0),
             child: _isLoggedIn
                 ? Text(
-              'Login successful!',
-              key: Key('loggedIn'),
-              style: TextStyle(fontSize: 20.0),
-            )
+                    'Login successful!',
+                    key: Key('loggedIn'),
+                    style: TextStyle(fontSize: 20.0),
+                  )
                 : Text(
-              'Not logged in',
-              key: Key('notLoggedIn'),
-              style: TextStyle(fontSize: 20.0),
-            ),
+                    'Not logged in',
+                    key: Key('notLoggedIn'),
+                    style: TextStyle(fontSize: 20.0),
+                  ),
           ),
         ],
       ),

@@ -1,9 +1,10 @@
 import 'package:doc/screens/Loginscreen.dart';
 import 'package:doc/screens/SignUp.dart';
+import 'package:doc/settings/setting.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
-      home: FirstScreen(),
+      home: SettingsPage(),
       showPerformanceOverlay: false,
       debugShowMaterialGrid: false,
       debugShowCheckedModeBanner: false,

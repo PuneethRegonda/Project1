@@ -12,10 +12,5 @@ class LoginValidation{
     }
     return null;
   }
-  String  acceptValidation(bool value){
-    if(value==false){
-      return 'Please Accept Terms and Conditions';
-    }
-    return null;
-  }
+
 }

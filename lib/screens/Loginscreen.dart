@@ -1,3 +1,4 @@
+import 'package:doc/Home.dart';
 import 'package:doc/screens/SignUp.dart';
 import 'package:doc/screens/loginvalidator/LoginValidation.dart';
 import 'package:flutter/material.dart';
@@ -109,15 +110,19 @@ class _LoginState extends State<Login> with LoginValidation {
                             print(_size.height*0.078);
                             FocusScope.of(context)
                                 .requestFocus(FocusNode());
-                            if (_formKey.currentState.validate() &&
-                                _acceptterms == true) {
-                              _formKey.currentState.save();
-                              print(
-                                  '$_acceptterms,usr:$_userName,pass:$_password');
-//                              Navigator.pushReplacementNamed(context, '/products');
-                              FocusScope.of(context)
-                                  .requestFocus(FocusNode());
-                            }
+                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context)=>Home()));
+
+//                            if (_formKey.currentState.validate() &&
+//                                _acceptterms == true) {
+//                              _formKey.currentState.save();
+//                              print(
+//                                  '$_acceptterms,usr:$_userName,pass:$_password');
+////                              Navigator.pushReplacementNamed(context, '/products');
+//                              Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>Home()));
+//                              FocusScope.of(context)
+//                                  .requestFocus(FocusNode());
+//
+//                            }
                           },
                             title: 'Login',
                           width: _size.width*0.8,
