@@ -1,10 +1,10 @@
 import 'package:doc/screens/loginvalidator/LoginValidation.dart';
 import 'package:flutter/material.dart';
 
-class SignIn extends StatefulWidget {
+class SignUp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _SignInState();
+    return _SignUpState();
   }
 }
 
@@ -12,7 +12,7 @@ final Shader linearGradient = LinearGradient(
   colors: [Color.fromRGBO(57, 160, 205, 1), Color.fromRGBO(5, 193, 154, 1)],
 ).createShader(Rect.fromLTWH(0.0, 0.0, 300.0, 70.0));
 
-class _SignInState extends State<SignIn> with LoginValidation {
+class _SignUpState extends State<SignUp> with LoginValidation {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String _userName;
   String _password;
@@ -44,7 +44,7 @@ class _SignInState extends State<SignIn> with LoginValidation {
                         _size.height * 0.07),
                     child: Center(
                       child: Text(
-                        'Sign in',
+                        'Sign Up',
                         style: new TextStyle(
                             fontSize: _size.width * 0.08,
                             fontWeight: FontWeight.bold,

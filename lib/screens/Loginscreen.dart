@@ -103,6 +103,7 @@ class _LoginState extends State<Login> with LoginValidation {
 
                         GradientButton(
                           onPressed: () {
+                            print(_size.height*0.078);
                             FocusScope.of(context)
                                 .requestFocus(FocusNode());
                             if (_formKey.currentState.validate() &&
@@ -117,7 +118,7 @@ class _LoginState extends State<Login> with LoginValidation {
                           },
                             title: 'Login',
                           width: _size.width*0.8,
-                          height: _size.height*0.078,
+                          height:53.307428571428574,
                         ),
                         ],
                       ),
@@ -134,6 +135,16 @@ class _LoginState extends State<Login> with LoginValidation {
             SizedBox(
               height: 30.0,
             ),
+            ///
+            ///
+            /// Down Part
+            ///
+            /// LOgin with
+            ///
+            ///
+
+
+
             Container(
               width: double.infinity,
               height: 156.0,
@@ -145,10 +156,10 @@ class _LoginState extends State<Login> with LoginValidation {
 //                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       SizedBox(
-                        height: 80.0,
+                        height: 50.0,
                       ),
                       Text(
-                        'Signup With',
+                        'Login With',
                         style: TextStyle(
                           fontSize: 20.0,
 //                        color: Colors.black,
@@ -163,6 +174,23 @@ class _LoginState extends State<Login> with LoginValidation {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
+                      Container(
+                        height: 50.0,
+                        child: RaisedButton.icon(
+                          onPressed: () {},
+                          icon: Image(image: AssetImage('assets/google-plus.png')),
+                          label: Text(
+                            'Google+',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(40.0)),
+                          color: Color.fromRGBO(220, 78, 66, 1),
+                        ),
+                      ),
                       Container(
                         height: 50.0,
                         decoration: BoxDecoration(
@@ -184,23 +212,7 @@ class _LoginState extends State<Login> with LoginValidation {
                         ),
                       ),
                       ///
-                      Container(
-                        height: 50.0,
-                        child: RaisedButton.icon(
-                          onPressed: () {},
-                          icon: Image(image: AssetImage('assets/google-plus.png')),
-                          label: Text(
-                            'Google+',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16.0,
-                            ),
-                          ),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(40.0)),
-                          color: Color.fromRGBO(220, 78, 66, 1),
-                        ),
-                      ),
+
                     ],
                   ),
                 ],

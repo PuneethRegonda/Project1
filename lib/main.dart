@@ -42,14 +42,15 @@ class FirstScreenState extends State<FirstScreen>
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
+        color: Colors.white,
         width: double.infinity,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-          colors: [
-            Color.fromRGBO(57, 160, 205, 1),
-            Color.fromRGBO(5, 193, 154, 1)
-          ],
-        )),
+//        decoration: BoxDecoration(
+//            gradient: LinearGradient(
+//          colors: [
+//            Color.fromRGBO(57, 160, 205, 1),
+//            Color.fromRGBO(5, 193, 154, 1)
+//          ],
+//        )),
         child: FadeTransition(
             opacity: _controller,
           child: BodyLayOut(),
@@ -90,9 +91,9 @@ class BodyLayOut extends StatelessWidget {
             GradientButton(
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => SignIn()));
+                      builder: (BuildContext context) => SignUp()));
                 },
-                title: 'Sign in',
+                title: 'Sign Up',
                 width: 350.0,
                 height: 60.0),
             SizedBox(
@@ -143,19 +144,19 @@ class GradientButton extends StatelessWidget {
           title,
           style: TextStyle(
             fontSize: 20.0,
-            foreground: Paint()..shader = linearGradient,
-//            color: Colors.white
+//            foreground: Paint()..shader = linearGradient,
+            color: Colors.white
           ),
         )),
         width: width,
         height: height,
         decoration: BoxDecoration(
-          color: Colors.white,
+//          color: Colors.white,
           borderRadius: BorderRadius.circular(30.0),
           shape: BoxShape.rectangle,
-//          gradient: new LinearGradient(
-//            colors: [Color.fromRGBO(57, 160, 205, 1), Color.fromRGBO(5, 193, 154, 1)],
-//          ),
+          gradient: new LinearGradient(
+            colors: [Color.fromRGBO(57, 160, 205, 1), Color.fromRGBO(5, 193, 154, 1)],
+          ),
         ),
       ),
     );
