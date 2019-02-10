@@ -1,3 +1,4 @@
+import 'package:doc/screens/Loginscreen.dart';
 import 'package:doc/screens/loginvalidator/LoginValidation.dart';
 import 'package:flutter/material.dart';
 
@@ -55,7 +56,7 @@ class _SignUpState extends State<SignUp> with LoginValidation {
                   Column(
                     children: <Widget>[
                       Container(
-                        width: _size.width * 0.8,
+                        width: _size.width * 0.9,
                         child: TextFormField(
                           validator: emailValidation,
                           onSaved: (String value) {
@@ -66,6 +67,7 @@ class _SignUpState extends State<SignUp> with LoginValidation {
                           textCapitalization: TextCapitalization.none,
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
+                            icon: Icon(Icons.person),
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.all(
                                     Radius.circular(_size.width * 0.025))),
@@ -78,7 +80,7 @@ class _SignUpState extends State<SignUp> with LoginValidation {
                         height: _size.width * 0.03,
                       ),
                       Container(
-                        width: _size.width * 0.8,
+                        width: _size.width * 0.9,
                         child: TextFormField(
                           validator: passwordValidation,
                           onSaved: (String value) {
@@ -88,6 +90,7 @@ class _SignUpState extends State<SignUp> with LoginValidation {
                           },
                           obscureText: true,
                           decoration: InputDecoration(
+                            icon: Icon(Icons.email),
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.all(
                                     Radius.circular(_size.width * 0.025))),
@@ -100,7 +103,31 @@ class _SignUpState extends State<SignUp> with LoginValidation {
                         height: _size.width * 0.03,
                       ),
                       Container(
-                        width: _size.width * 0.8,
+                        width: _size.width * 0.9,
+                        child: TextFormField(
+                          validator: passwordValidation,
+                          onSaved: (String value) {
+                            setState(() {
+                              _password = value;
+                            });
+                          },
+                          keyboardType: TextInputType.emailAddress,
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            icon: Icon(Icons.lock),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(
+                                  Radius.circular(_size.width * 0.025)),),
+                            hintText: 'Password',
+                            labelText: 'Password',
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: _size.width * 0.03,
+                      ),
+                      Container(
+                        width: _size.width * 0.9,
                         child: TextFormField(
                           validator: passwordValidation,
                            onSaved: (String value) {
@@ -115,7 +142,7 @@ class _SignUpState extends State<SignUp> with LoginValidation {
                               borderRadius: BorderRadius.all(
                                  Radius.circular(_size.width * 0.025)),
                            ),
-
+                            icon: Icon(Icons.phone),
                             suffixIcon: IconButton(
                                 icon: Icon(Icons.remove_red_eye),
                                 onPressed: () {}),
@@ -124,29 +151,7 @@ class _SignUpState extends State<SignUp> with LoginValidation {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: _size.width * 0.03,
-                      ),
-                      Container(
-                        width: _size.width * 0.8,
-                        child: TextFormField(
-                          validator: passwordValidation,
-                          onSaved: (String value) {
-                            setState(() {
-                              _password = value;
-                            });
-                          },
-                          keyboardType: TextInputType.emailAddress,
-                          obscureText: true,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.all(
-                                    Radius.circular(_size.width * 0.025)),),
-                            hintText: 'Password',
-                            labelText: 'Password',
-                          ),
-                        ),
-                      ),
+
                       SizedBox(
                         height: _size.width * 0.05,
                       ),
@@ -205,7 +210,7 @@ class _SignUpState extends State<SignUp> with LoginValidation {
 //                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       SizedBox(
-                        height: 80.0,
+                        height: 70.0,
                       ),
                       Text(
                         'Signup With',
@@ -262,6 +267,29 @@ class _SignUpState extends State<SignUp> with LoginValidation {
                         ),
                       ),
                     ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text('Don\'t have an account?  '),
+                        InkWell(
+                          onTap: (){
+//                            Navigator.of(context).pop();
+                            Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>Login()));
+                          },
+                          child: Text(
+                            'Login',
+                            style: TextStyle(
+                              fontSize: 15.0,
+//                        color: Colors.black,
+                              foreground: Paint()..shader = linearGradient,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

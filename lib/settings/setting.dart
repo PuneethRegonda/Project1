@@ -9,7 +9,10 @@ class Settings extends StatelessWidget {
     return Material(
       child: Container(
         child: Center(
-          child: new TestExtract(circleRadius: circleRadius, circleBorderWidth: circleBorderWidth),
+          child: new TestExtract(
+              circleRadius: circleRadius,
+              circleBorderWidth: circleBorderWidth,
+          ),
         ),
         color: Colors.blue,
         margin: EdgeInsets.fromLTRB(_size.width*0.05, _size.width*0.02, _size.width*0.05, _size.width*0.03),

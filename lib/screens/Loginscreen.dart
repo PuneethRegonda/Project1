@@ -1,3 +1,4 @@
+import 'package:doc/screens/SignUp.dart';
 import 'package:doc/screens/loginvalidator/LoginValidation.dart';
 import 'package:flutter/material.dart';
 
@@ -64,6 +65,7 @@ class _LoginState extends State<Login> with LoginValidation {
                           },
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.person),
                             border: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(_size.width*0.025))),
@@ -86,6 +88,7 @@ class _LoginState extends State<Login> with LoginValidation {
                           },
                           obscureText: true,
                           decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.lock),
                             border: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(_size.width*0.025))),
@@ -215,6 +218,29 @@ class _LoginState extends State<Login> with LoginValidation {
 
                     ],
                   ),
+                  SizedBox(
+                    height: 40.0,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text('Don\'t have an account?  '),
+                        InkWell(
+                          onTap: (){
+                            Navigator.of(context).pop();
+                            Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>SignUp()));
+                          },
+                          child: Text(
+                            'Signup With',
+                            style: TextStyle(
+                              fontSize: 15.0,
+//                        color: Colors.black,
+                              foreground: Paint()..shader = linearGradient,
+                            ),
+                        ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -242,7 +268,7 @@ class GradientButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      splashColor: Colors.lightBlue.withOpacity(0.5),
+      splashColor: Color.fromRGBO(5, 193, 154, 1),
       onPressed: onPressed,
       child: Container(
         child: Center(child:
