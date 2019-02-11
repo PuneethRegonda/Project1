@@ -1,4 +1,4 @@
-import 'package:doc/settings/setting.dart';
+import 'package:doc/screens/about.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -16,7 +16,7 @@ class Home extends StatelessWidget {
               leading: Icon(Icons.settings),
               title: Text('Settings'),
               onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>SettingsPage()));
+                Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>About()));
               },
             )
           ],

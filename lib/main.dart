@@ -1,10 +1,10 @@
 import 'package:doc/screens/Loginscreen.dart';
 import 'package:doc/screens/SignUp.dart';
-import 'package:doc/settings/setting.dart';
+import 'package:doc/screens/about.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
-      home: SettingsPage(),
+      home: FirstScreen(),
       showPerformanceOverlay: false,
       debugShowMaterialGrid: false,
       debugShowCheckedModeBanner: false,
@@ -83,38 +83,39 @@ class BodyLayOut extends StatelessWidget {
 //              width: double.infinity,
           height: 350.0,
         ),
-        SizedBox(
-          height: 100.0,
+        Expanded(
+          flex: 2,
+          child: SizedBox(
+            child: Container(
+              child: Text("Welcome"),
+            ),
+          ),
         ),
-        Column(
-          children: <Widget>[
-            GradientButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => SignUp()));
-                },
-                title: ' Signup ',
-                width: 350.0,
-                height: 60.0,
-            isgradientcolor: true,
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            GradientButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => Login()));
-              },
-              title: 'Login',
-              width: 350.0,
-              height: 60.0,
-              isgradientcolor: false,
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-          ],
+        GradientButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => SignUp()));
+            },
+            title: ' Signup ',
+            width: 350.0,
+            height: 60.0,
+        isgradientcolor: true,
+        ),
+        SizedBox(
+          height: 10.0,
+        ),
+        GradientButton(
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (BuildContext context) => Login()));
+          },
+          title: 'Login',
+          width: 350.0,
+          height: 60.0,
+          isgradientcolor: false,
+        ),
+        SizedBox(
+          height: 10.0,
         ),
       ],
     );

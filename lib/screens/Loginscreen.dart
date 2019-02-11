@@ -34,6 +34,7 @@ class _LoginState extends State<Login> with LoginValidation {
       child: Form(
         key: _formKey,
         child: Scaffold(
+          bottomNavigationBar:  BottomFacebookGoogle(),
           backgroundColor: Colors.white,
           body: ListView(children: [
             Container(
@@ -130,127 +131,120 @@ class _LoginState extends State<Login> with LoginValidation {
                         ),
                         ],
                       ),
-                      SizedBox(
-                        height: 45.0,
-                      ),
-
                     ],
                   ),
                 ],
               ),
 //              color: Colors.blue,
             ),
-            SizedBox(
-              height: 30.0,
-            ),
-            ///
-            ///
-            /// Down Part
-            ///
-            /// LOgin with
-            ///
-            ///
+          ]),
+        ),
+      ),
+    );
+  }
+}
 
+class BottomFacebookGoogle extends StatelessWidget {
+  const BottomFacebookGoogle({
+    Key key,
+  }) : super(key: key);
 
-
-            Container(
-              width: double.infinity,
-              height: 156.0,
-              color: Colors.grey.withOpacity(0.3),
-              child: Column(
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 156.0,
+      color: Colors.grey.withOpacity(0.3),
+      child: Column(
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
 //                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      SizedBox(
-                        height: 50.0,
-                      ),
-                      Text(
-                        'Login With',
-                        style: TextStyle(
-                          fontSize: 20.0,
+            children: <Widget>[
+              SizedBox(
+                height: 50.0,
+              ),
+              Text(
+                'Login With',
+                style: TextStyle(
+                  fontSize: 20.0,
 //                        color: Colors.black,
-                          foreground: Paint()..shader = linearGradient,
-                        ),
-                      )
-                    ],
-                  ),
+                  foreground: Paint()..shader = linearGradient,
+                ),
+              )
+            ],
+          ),
 //                  SizedBox(
 //                    height: 30.0,
 //                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      Container(
-                        height: 50.0,
-                        child: RaisedButton.icon(
-                          onPressed: () {},
-                          icon: Image(image: AssetImage('assets/google-plus.png')),
-                          label: Text(
-                            'Google+',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16.0,
-                            ),
-                          ),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(40.0)),
-                          color: Color.fromRGBO(220, 78, 66, 1),
-                        ),
-                      ),
-                      Container(
-                        height: 50.0,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                        child: RaisedButton.icon(
-                          onPressed: () {},
-                          icon: Image(image: AssetImage('assets/facebook .png')),
-                          label: Text(
-                            'Facebook',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16.0,
-                            ),
-                          ),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30.0)),
-                          color: Color.fromRGBO(58, 89, 152, 1),
-                        ),
-                      ),
-                      ///
-
-                    ],
-                  ),
-                  SizedBox(
-                    height: 40.0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text('Don\'t have an account?  '),
-                        InkWell(
-                          onTap: (){
-                            Navigator.of(context).pop();
-                            Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>SignUp()));
-                          },
-                          child: Text(
-                            'Signup With',
-                            style: TextStyle(
-                              fontSize: 15.0,
-//                        color: Colors.black,
-                              foreground: Paint()..shader = linearGradient,
-                            ),
-                        ),
-                        ),
-                      ],
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Container(
+                height: 50.0,
+                child: RaisedButton.icon(
+                  onPressed: () {},
+                  icon: Image(image: AssetImage('assets/google-plus.png')),
+                  label: Text(
+                    'Google+',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16.0,
                     ),
                   ),
-                ],
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40.0)),
+                  color: Color.fromRGBO(220, 78, 66, 1),
+                ),
               ),
+              Container(
+                height: 50.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+                child: RaisedButton.icon(
+                  onPressed: () {},
+                  icon: Image(image: AssetImage('assets/facebook .png')),
+                  label: Text(
+                    'Facebook',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0)),
+                  color: Color.fromRGBO(58, 89, 152, 1),
+                ),
+              ),
+              ///
+
+            ],
+          ),
+          SizedBox(
+            height: 40.0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('Don\'t have an account?  '),
+                InkWell(
+                  onTap: (){
+                    Navigator.of(context).pop();
+                    Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>SignUp()));
+                  },
+                  child: Text(
+                    'Signup With',
+                    style: TextStyle(
+                      fontSize: 15.0,
+//                        color: Colors.black,
+                      foreground: Paint()..shader = linearGradient,
+                    ),
+                ),
+                ),
+              ],
             ),
-          ]),
-        ),
+          ),
+        ],
       ),
     );
   }
