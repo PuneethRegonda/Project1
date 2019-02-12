@@ -1,9 +1,10 @@
 import 'package:doc/screens/Loginscreen.dart';
 import 'package:doc/screens/SignUp.dart';
+import 'package:doc/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
-      home: FirstScreen(),
+      home: SplashScreen(),
       showPerformanceOverlay: false,
       debugShowMaterialGrid: false,
       debugShowCheckedModeBanner: false,
@@ -36,6 +37,8 @@ class FirstScreenState extends State<FirstScreen>
     _controller.forward();
     super.initState();
   }
+
+
 
   @override
   Widget build(BuildContext context) {
