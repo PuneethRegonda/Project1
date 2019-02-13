@@ -4,7 +4,18 @@ import 'package:doc/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
-      home: SplashScreen(),
+      home: Scaffold(
+        body: Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: BoxDecoration(
+            gradient: new LinearGradient(
+              colors: [Color.fromRGBO(57, 160, 205, 1), Color.fromRGBO(5, 193, 154, 1)],
+            ),
+          ),
+          child: SplashScreen(),
+        ),
+      ),
       showPerformanceOverlay: false,
       debugShowMaterialGrid: false,
       debugShowCheckedModeBanner: false,
@@ -15,6 +26,9 @@ final Shader linearGradient = LinearGradient(
 ).createShader(Rect.fromLTWH(0.0, 0.0, 300.0, 70.0));
 
 class FirstScreen extends StatefulWidget {
+
+  final bool hasError;
+  FirstScreen({@required this.hasError});
   @override
   FirstScreenState createState() {
     return new FirstScreenState();
@@ -38,7 +52,11 @@ class FirstScreenState extends State<FirstScreen>
     super.initState();
   }
 
-
+ @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

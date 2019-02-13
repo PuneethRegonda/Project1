@@ -118,6 +118,7 @@ class SettingState extends State<Setting> {
                     ),
                     Divider(),
                     Container(
+                      width: width*9/10,
                       child: TextFormField(
                         validator: (String value) {
                           if (value.isEmpty) {
@@ -129,7 +130,6 @@ class SettingState extends State<Setting> {
                             _formData['fullname'] = value;
                           });
                         },
-                        maxLength: 30,
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                           hintText: 'Fullname',
@@ -139,7 +139,7 @@ class SettingState extends State<Setting> {
                     ),
                     Divider(),
                     Container(
-                      height: 50.0,
+                      height: height*0.8/10,
                       child: ListTile(
                         leading: Icon(Icons.email),
                         title: Row(

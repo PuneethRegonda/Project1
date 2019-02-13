@@ -1,6 +1,8 @@
 import 'package:doc/main.dart';
-import 'package:doc/screens/settings.dart';
+import 'package:doc/screens/Loginscreen.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 
 class SplashScreen extends StatefulWidget {
@@ -9,21 +11,70 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen>with TickerProviderStateMixin {
+
+
+  Widget showErorCard(){
+
+    return Material(
+      child: Container(
+        width: 120.0,
+        height: 120.0,
+
+        child: AlertDialog(
+          content: Text('Its erorr in loading check your network'),
+          actions: <Widget>[
+            FlatButton(onPressed: (){
+              Navigator.of(context).pop();
+            }, child: Text('Ok'))
+          ],
+        ),
+      ),
+    );
+  }
+
+  void fun(){
+   setState(() {
+
+   });
+  }
+
+
+  Future<Post> post;
   AnimationController _controller;
   Animation<double> animation;
+  Future<Post> fetchPost() async {
+
+     final response =
+     await http.get('https://jsonplaceholder.typicode.com/posts/1');
+
+     if (response.statusCode == 200) {
+       // If server returns an OK response, parse the JSON
+//      print('sucesses'+jso
+// n.decode(response.body));
+       return Post.fromJson(json.decode(response.body));
+     } else {
+       // If that response was not OK, throw an error.
+       throw Exception('Failed to load post');
+     }
+
+  }
+
+//  @override
+//  void didChangeDependencies() {
+//    fetchPost();
+//    super.didChangeDependencies();
+//  }
 
   @override
   void initState() {
+    post=fetchPost();
     _controller =
         AnimationController(vsync: this, duration: const Duration(seconds: 2));
     animation = Tween(
       begin: 0.0,
       end: 1.0,
     ).animate(_controller);
-    _controller.forward().whenComplete((){
-           Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>Setting()));
-        //print('is completed :${animation.status}');
-    });
+    _controller.forward();
     super.initState();
   }
 
@@ -31,6 +82,46 @@ class _SplashScreenState extends State<SplashScreen>with TickerProviderStateMixi
   Widget build(BuildContext context) {
    final  double width= MediaQuery.of(context).size.width;
    final  double height= MediaQuery.of(context).size.height;
+    return FutureBuilder<Post>(
+      future: fetchPost(),
+      builder: (context, snapshot) {
+        // if (snapshot.hasError) {
+        //   //_controller.dispose();
+        //   return showErorCard();
+        // }
+        if (snapshot.hasData) {
+          if(snapshot.data==null){
+              print('has no Error and no dataRR');
+            return FirstScreen(hasError: false,);
+          }
+          /// here we need to send to the DashBoard Page
+          /// Note this is based on this future  **
+          return  Login();
+        }
+        if(!snapshot.hasData&&snapshot.hasError){
+          print('has Error');
+          return FirstScreen(hasError: true);
+        }
+        return  SplashScreent(controller: _controller, width: width, height: height);
+      },
+    );
+  }
+}
+
+class SplashScreent extends StatelessWidget {
+  const SplashScreent({
+    Key key,
+    @required AnimationController controller,
+    @required this.width,
+    @required this.height,
+  }) : _controller = controller, super(key: key);
+
+  final AnimationController _controller;
+  final double width;
+  final double height;
+
+  @override
+  Widget build(BuildContext context) {
     return MaterialApp(
 
       home: Scaffold(
@@ -63,3 +154,23 @@ class _SplashScreenState extends State<SplashScreen>with TickerProviderStateMixi
     );
   }
 }
+//new SplashScreent(controller: _controller, width: width, height: height);
+class Post {
+  final int userId;
+  final int id;
+  final String title;
+  final String body;
+
+  Post({this.userId, this.id, this.title, this.body});
+
+  factory Post.fromJson(Map<String, dynamic> json) {
+    return Post(
+      userId: json['userId'],
+      id: json['id'],
+      title: json['title'],
+      body: json['body'],
+    );
+  }
+}
+
+
